@@ -8,7 +8,7 @@ const getTasks = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-};
+}; 
 
 const createTask = async (req, res) => {
     try {
@@ -20,6 +20,8 @@ const createTask = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 };
+
+
 
 const updateTask = async (req, res) => {
     try {
@@ -44,10 +46,11 @@ const deleteTask = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
+
 };
 
 
-const markTaskComplete = async (req, res) => {
+const markTaskComplete = async (req,res) => {
     try {
         const task = await Task.findByIdAndUpdate(
             req.params.id, 
@@ -68,3 +71,6 @@ const markTaskComplete = async (req, res) => {
 
 
 module.exports = { getTasks, createTask, updateTask, deleteTask,markTaskComplete };
+
+
+
