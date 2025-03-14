@@ -1,8 +1,8 @@
-// Ensure DOM is fully loaded
+
 document.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname;
 
-    // Check which page we are on and attach event listeners
+    
     if (currentPage.endsWith('register.html')) {
         document.getElementById('registerForm').addEventListener('submit', registerUser);
     } else if (currentPage.endsWith('index.html') || currentPage === '/') {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ✅ User Registration
+// User Registration
 async function registerUser(event) {
     event.preventDefault();
     const name = document.getElementById('registerName').value.trim();
@@ -48,7 +48,7 @@ async function registerUser(event) {
     }
 }
 
-// ✅ User Login
+// User Login
 async function loginUser(event) {
     event.preventDefault();
 
@@ -82,14 +82,14 @@ async function loginUser(event) {
     }
 }
 
-// ✅ User Logout
+//  User Logout
 function logoutUser() {
     localStorage.removeItem('token');
     alert('Logged out successfully.');
     window.location.href = '/';
 }
 
-// ✅ Authorization Check (Protect Dashboard)
+// Authorization Check 
 function checkAuth() {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -98,7 +98,7 @@ function checkAuth() {
     }
 }
 
-// ✅ Load Tasks (Dashboard View)
+//  Load Tasks 
 async function loadTasks() {
     try {
         const token = localStorage.getItem('token');
@@ -132,7 +132,7 @@ async function loadTasks() {
     }
 }
 
-// ✅ Create a New Task
+// Create a New Task
 async function createTask(event) {
     event.preventDefault();
 
@@ -168,7 +168,7 @@ async function createTask(event) {
     }
 }
 
-// ✅ Delete a Task
+//  Delete a Task
 async function deleteTask(taskId) {
     if (!confirm('Are you sure you want to delete this task?')) return;
 
