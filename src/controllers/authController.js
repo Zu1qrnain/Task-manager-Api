@@ -24,6 +24,7 @@ const loginUser = async (req, res) => {
         }
 
         //  now to generate JWT token
+
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.json({ message: 'Login successful', token });
     } catch (error) {
@@ -32,5 +33,7 @@ const loginUser = async (req, res) => {
 };
 
 module.exports = { registerUser, loginUser };
+
+
 
 
